@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-container { border: 1px solid #ccc; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input[type="email"], input[type="password"] { width: calc(100% - 22px); padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+        input[type="submit"] { background-color: #007bff; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form id="loginForm">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Log In">
+        </form>
+    </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+    
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+    
+            fetch('http://localhost:8080/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                }),
+            })
+            .then(response => response.json()) // Always parse the JSON regardless of the status code.
+            .then(data => {
+                if (data.statusCode === 500 && data.error === "Bad credentials") {
+                    // Handle the error, for example, by displaying an alert to the user.
+                    alert('Authentication failed: Bad credentials.');
+                } else {
+                    // If the error structure isn't present, proceed with authentication success logic.
+                    document.cookie = "username=" + email + "; path=/";
+                    window.location.href = '/home.html'; // Redirect to dashboard.
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+
+</body>
+</html>    

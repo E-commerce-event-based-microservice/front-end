@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="form-box">
+                <form action="" method="" id="loginForm">
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <input class="btn btn-info btn-block login" type="submit" value="Log In">
+                </form>
+                <br>
+                <p><a href="forgot_password.html">Forgot your password?</a></p>
+                <p><a href="singup.html">Dont have an accaunt? Click here to sign up!</a></p>
+            </div>
+        </div>
+    </div>
+    <script src = "js/script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            fetch('http://localhost:8080/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                }),
+            })
+                .then(response => response.json()) // Always parse the JSON regardless of the status code.
+                .then(data => {
+                    if (data.statusCode === 500 && data.error === "Bad credentials") {
+                        // Handle the error, for example, by displaying an alert to the user.
+                        alert('Authentication failed: Bad credentials.');
+                    } else {
+                        // If the error structure isn't present, proceed with authentication success logic.
+                        setCookie("username", email, 365)
+
+                        fetch('http://localhost:8080/api/userId/' + email + '/',{
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                email: email
+                            }),
+                        })
+                            .then(responseProduct => {
+                                return responseProduct.json();
+                            })
+                            .then(productData => {
+                                setCookie("ID", productData, 365)
+                            })
+                            .catch(error => console.log(error));
+                    }
+                    window.location.href = "home.html"; // Redirect to dashboard.
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+        });
+    </script>
+
+</body>
+</html>  

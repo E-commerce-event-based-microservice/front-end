@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Email Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-container">
+            <div class="form-box">
+                <form action="" method="" id="newPasswordForm">
+                    <label for="email">Password:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <input class="btn btn-info btn-block login" type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src = "js/script.js"></script>
+    <script>
+        document.getElementById('newEmailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let email = document.getElementById('email').value
+            let user_id = getCookie("ID")
+            fetch('http://localhost:8080/public/api/users/' + user_id, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email
+                }),
+            })
+            window.location.href = "my_info.html";
+        })
+    </script>
+
+</body>
+</html>  

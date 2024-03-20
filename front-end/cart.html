@@ -29,6 +29,11 @@
                     </button>
                   </a>
                 </div>
+
+                <div class = "order-lg-2 nav-btns">
+                    <button type="button" class = "btn position-relative" id = "logout">Logout</button>
+                </div>
+
     
                 <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
                     <span class = "navbar-toggler-icon"></span>
@@ -103,6 +108,16 @@
         </section>
 
         <script src = "js/script.js"></script>
+        <script>
+            var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+            for (var i = 0; i < removeCartItemButtons.length; i++) {
+                var button = removeCartItemButtons[i]
+                button.addEventListener('click', removeCartItem)
+            }
+
+            document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+        </script>
+
     </body>
 
 </html>

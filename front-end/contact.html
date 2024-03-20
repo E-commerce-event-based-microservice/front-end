@@ -29,6 +29,11 @@
                     </button>
                   </a>
                 </div>
+
+                <div class = "order-lg-2 nav-btns">
+                  <button type="button" class = "btn position-relative" id = "logout">Logout</button>
+                </div>
+
     
                 <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
                     <span class = "navbar-toggler-icon"></span>
@@ -72,22 +77,22 @@
                     <form action="#!">
                       <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                         <div class="col-12">
-                          <label for="fullname" class="form-label">Full Name <span class="text-danger">*</span></label>
+                          <label for="client_name" class="form-label">Full Name <span class="text-danger">*</span></label>
                           <input type="text" class="form-control" id="client_name" name="fullname" required>
                         </div>
                         <div class="col-12 col-md-6">
-                          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                          <label for="client_mail" class="form-label">Email <span class="text-danger">*</span></label>
                           <div class="input-group">
                             <span class="input-group-text">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                               </svg>
                             </span>
-                            <input type="email" class="form-control" id="client_mail" name="email" required>
+                            <input type="email" class="form-control" id="client_mail" name="email" required autocomplete="off">
                           </div>
                         </div>
                         <div class="col-12">
-                          <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
+                          <label for="contact_submit" class="form-label">Message <span class="text-danger">*</span></label>
                           <textarea type= "text" class="form-control" id="clinet_message" name="message" rows="3" required></textarea>
                         </div>
                         <div class="col-12">
@@ -105,6 +110,11 @@
           </section>
 
         <script src = "js/script.js"></script>
+        <script>
+            document.querySelector('#contact_submit').addEventListener('click', sendMessage);
+        </script>
     </body>
+
+
 
 </html>

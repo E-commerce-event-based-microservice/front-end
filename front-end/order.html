@@ -29,6 +29,10 @@
                     </button>
                   </a>
                 </div>
+
+                <div class = "order-lg-2 nav-btns">
+                    <button type="button" class = "btn position-relative" id = "logout">Logout</button>
+                </div>
     
                 <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
                     <span class = "navbar-toggler-icon"></span>
@@ -64,6 +68,28 @@
         </table>
 
         <script src = "js/script.js"></script>
+        <script>
+            let user_id = getCookie("ID");
+            fetch('http://localhost:8089/orders/user/' + user_id)
+                .then(responseOrder => {
+                    return responseOrder.json();
+                })
+                .then(orderData => {
+                    console.log(orderData);
+                    orderData.forEach(order => {
+                        const markup2 = `
+                <tbody>
+                    <th scope="row">${order.orderId}</th>
+                    <td>${order.status}</td>
+                    <td>${order.date}</td>
+                    <td>${order.price}</td>
+                </tbody>`;
+
+                        document.querySelector('#order_table').insertAdjacentHTML('beforeend', markup2);
+                    })
+                })
+                .catch(error => console.log(error));
+        </script>
     </body>
 
 </html>
