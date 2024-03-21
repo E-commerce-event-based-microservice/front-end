@@ -74,7 +74,7 @@
                 <div class="col-12 col-lg-9">
                   <div class="bg-white border rounded shadow-sm overflow-hidden">
           
-                    <form action="#!">
+                    <form  id="contactForm">
                       <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
                         <div class="col-12">
                           <label for="client_name" class="form-label">Full Name <span class="text-danger">*</span></label>
@@ -97,7 +97,7 @@
                         </div>
                         <div class="col-12">
                           <div class="d-grid">
-                            <button class="btn btn-primary btn-lg" type="button" id="contact_submit">Submit</button>
+                            <button class="btn btn-primary btn-lg" type="submit" id="contact_submit">Submit</button>
                           </div>
                         </div>
                       </div>
@@ -111,7 +111,8 @@
 
         <script src = "js/script.js"></script>
         <script>
-            document.querySelector('#contact_submit').addEventListener('click', sendMessage);
+          document.querySelector('#logout').addEventListener('click', logOut);
+          document.getElementById('contactForm').addEventListener('submit', sendMessage);
         </script>
     </body>
 

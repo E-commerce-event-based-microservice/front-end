@@ -69,6 +69,7 @@
 
         <script src = "js/script.js"></script>
         <script>
+            document.querySelector('#logout').addEventListener('click', logOut);
             let user_id = getCookie("ID");
             fetch('http://localhost:8089/orders/user/' + user_id)
                 .then(responseOrder => {
