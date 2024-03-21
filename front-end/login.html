@@ -68,8 +68,9 @@
                                 setCookie("ID", productData, 365)
                             })
                             .catch(error => console.log(error));
+                        window.location.href = "home.html";
+
                     }
-                    window.location.href = "home.html"; // Redirect to dashboard.
                 })
                 .catch((error) => {
                     console.error('Error:', error);
