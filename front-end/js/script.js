@@ -39,7 +39,7 @@ const sendMessage = async() => {
 
     let client_name = document.getElementById('client_name').value
     let client_mail = document.getElementById('client_mail').value
-    let client_message = document.getElementById('clinet_message').value
+    let client_message = document.getElementById('client_message').value
 
     let response = await fetch('http://localhost:8081/send_notification', {
         method: 'POST',
@@ -50,7 +50,7 @@ const sendMessage = async() => {
         body: JSON.stringify({
             receiver: client_mail,
             subject: client_name,
-            message: client_message  
+            message: client_message
         })
 
     })

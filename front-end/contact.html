@@ -1,120 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
 
-    <meta charset="UTF-B">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name = "viewport" content="width-device-width, initial-scale = 1.0">
+        <meta charset="UTF-B">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name = "viewport" content="width-device-width, initial-scale = 1.0">
 
-    <title>Book Store Home</title>
+        <title>Book Store Home</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel = "stylesheet" href="css/main.css">
+    
+    </head>
+    <body>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel = "stylesheet" href="css/main.css">
+        <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+            <div class = "container">
+                <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "home.html">
+                    <span class = "text-uppercase fw-lighter ms-2">Books</span>
+                </a>
+    
+                <div class = "order-lg-2 nav-btns">
+                  <a href = "cart.html">
+                    <button type = "button" class = "btn position-relative" >
+                        <i class = "fa fa-shopping-cart"></i>
+                    </button>
+                  </a>
+                </div>
 
-</head>
-<body>
+                <div class = "order-lg-2 nav-btns">
+                  <button type="button" class = "btn position-relative" id = "logout">Logout</button>
+                </div>
 
-<nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
-    <div class = "container">
-        <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "home.html">
-            <span class = "text-uppercase fw-lighter ms-2">Books</span>
-        </a>
-
-        <div class = "order-lg-2 nav-btns">
-            <a href = "cart.html">
-                <button type = "button" class = "btn position-relative" >
-                    <i class = "fa fa-shopping-cart"></i>
-                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
+    
+                <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+                    <span class = "navbar-toggler-icon"></span>
                 </button>
-            </a>
-        </div>
-
-        <div class = "order-lg-2 nav-btns">
-            <button type="button" class = "btn position-relative" id = "logout">Logout</button>
-        </div>
-
-
-        <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
-            <span class = "navbar-toggler-icon"></span>
-        </button>
-
-        <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
-            <ul class = "navbar-nav mx-auto text-center">
-                <li class = "nav-item px-2 py-2">
-                    <a class = "nav-link text-uppercase text-dark" href = "home.html">home</a>
-                </li>
-                <li class = "nav-item px-2 py-2 border-0">
-                    <a class = "nav-link text-uppercase text-dark" href = "order.html">orders</a>
-                </li>
-                <li class = "nav-item px-2 py-2 border-0">
-                    <a class = "nav-link text-uppercase text-dark" href = "my_info.html">my information</a>
-                </li>
-                <li class = "nav-item px-2 py-2 border-0">
-                    <a class = "nav-link text-uppercase text-dark" href = "contact.html">contact</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<section class="bg-light py-3 py-md-5">
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
-                <h2 class="mb-4 display-5 text-center">Contact</h2>
-                <p class="text-secondary mb-5 text-center">We will reply within 5 business days</p>
-                <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+    
+                <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
+                    <ul class = "navbar-nav mx-auto text-center">
+                        <li class = "nav-item px-2 py-2">
+                            <a class = "nav-link text-uppercase text-dark" href = "home.html">home</a>
+                        </li>
+                        <li class = "nav-item px-2 py-2 border-0">
+                            <a class = "nav-link text-uppercase text-dark" href = "order.html">orders</a>
+                        </li>
+                        <li class = "nav-item px-2 py-2 border-0">
+                          <a class = "nav-link text-uppercase text-dark" href = "my_info.html">my information</a>
+                        </li>
+                        <li class = "nav-item px-2 py-2 border-0">
+                            <a class = "nav-link text-uppercase text-dark" href = "contact.html">contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
+        </nav>
 
-    <div class="container">
-        <div class="row justify-content-lg-center">
-            <div class="col-12 col-lg-9">
-                <div class="bg-white border rounded shadow-sm overflow-hidden">
-
-                    <form  id="contactForm">
-                        <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
-                            <div class="col-12">
-                                <label for="client_name" class="form-label">Full Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="client_name" name="fullname" required>
-                            </div>
-                            <div class="col-12 col-md-6">
-                                <label for="client_mail" class="form-label">Email <span class="text-danger">*</span></label>
-                                <div class="input-group">
+        <section class="bg-light py-3 py-md-5">
+            <div class="container">
+              <div class="row justify-content-md-center">
+                <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                  <h2 class="mb-4 display-5 text-center">Contact</h2>
+                  <p class="text-secondary mb-5 text-center">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque et neque id ligula mattis commodo.</p>
+                  <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+                </div>
+              </div>
+            </div>
+          
+            <div class="container">
+              <div class="row justify-content-lg-center">
+                <div class="col-12 col-lg-9">
+                  <div class="bg-white border rounded shadow-sm overflow-hidden">
+          
+                    <form id="contactForm">
+                      <div class="row gy-4 gy-xl-5 p-4 p-xl-5">
+                        <div class="col-12">
+                          <label for="client_name" class="form-label">Full Name <span class="text-danger">*</span></label>
+                          <input type="text" class="form-control" id="client_name" name="fullname" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <label for="client_mail" class="form-label">Email <span class="text-danger">*</span></label>
+                          <div class="input-group">
                             <span class="input-group-text">
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
                                 <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
                               </svg>
                             </span>
-                                    <input type="email" class="form-control" id="client_mail" name="email" required autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <label for="contact_submit" class="form-label">Message <span class="text-danger">*</span></label>
-                                <textarea type= "text" class="form-control" id="clinet_message" name="message" rows="3" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <div class="d-grid">
-                                    <button class="btn btn-primary btn-lg" type="submit" id="contact_submit">Submit</button>
-                                </div>
-                            </div>
+                            <input type="email" class="form-control" id="client_mail" name="email" required autocomplete="off">
+                          </div>
                         </div>
+                        <div class="col-12">
+                          <label for="contact_submit" class="form-label">Message <span class="text-danger">*</span></label>
+                          <textarea type= "text" class="form-control" id="client_message" name="message" rows="3" required></textarea>
+                        </div>
+                        <div class="col-12">
+                          <div class="d-grid">
+                            <button class="btn btn-primary btn-lg" type="button" id="contact_submit">Submit</button>
+                          </div>
+                        </div>
+                      </div>
                     </form>
-
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
-</section>
+          </section>
 
-<script src = "js/script.js"></script>
-<script>
-    document.querySelector('#logout').addEventListener('click', logOut);
-    document.getElementById('contactForm').addEventListener('submit', sendMessage);
-</script>
-</body>
+        <script src = "js/script.js"></script>
+        <script>
+          document.querySelector('#logout').addEventListener('click', logOut);
+          document.querySelector('#contact_submit').addEventListener('click', sendMessage);
+        </script>
+    </body>
 
 
 
