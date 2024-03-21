@@ -1,86 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
 
-        <meta charset="UTF-B">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name = "viewport" content="width-device-width, initial-scale = 1.0">
+    <meta charset="UTF-B">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewport" content="width-device-width, initial-scale = 1.0">
 
-        <title>Book Store Home</title>
-        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel = "stylesheet" href="css/main.css">
-    
-    </head>
-    <body>
+    <title>Book Store Home</title>
 
-        <nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
-            <div class = "container">
-                <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "home.html">
-                    <span class = "text-uppercase fw-lighter ms-2">Books</span>
-                </a>
-    
-                <div class = "order-lg-2 nav-btns">
-                  <a href = "cart.html">
-                    <button type = "button" class = "btn position-relative" >
-                        <i class = "fa fa-shopping-cart"></i>
-                        <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
-                    </button>
-                  </a>
-                </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href = "bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href="css/main.css">
 
-                <div class = "order-lg-2 nav-btns">
-                    <button type="button" class = "btn position-relative" id = "logout">Logout</button>
-                </div>
-    
-                <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
-                    <span class = "navbar-toggler-icon"></span>
+</head>
+<body>
+
+<nav class = "navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
+    <div class = "container">
+        <a class = "navbar-brand d-flex justify-content-between align-items-center order-lg-0" href = "home.html">
+            <span class = "text-uppercase fw-lighter ms-2">Books</span>
+        </a>
+
+        <div class = "order-lg-2 nav-btns">
+            <a href = "cart.html">
+                <button type = "button" class = "btn position-relative" >
+                    <i class = "fa fa-shopping-cart"></i>
+                    <span class = "position-absolute top-0 start-100 translate-middle badge bg-primary">5</span>
                 </button>
-    
-                <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
-                    <ul class = "navbar-nav mx-auto text-center">
-                        <li class = "nav-item px-2 py-2">
-                            <a class = "nav-link text-uppercase text-dark" href = "home.html">home</a>
-                        </li>
-                        <li class = "nav-item px-2 py-2 border-0">
-                            <a class = "nav-link text-uppercase text-dark" href = "order.html">orders</a>
-                        </li>
-                        <li class = "nav-item px-2 py-2 border-0">
-                          <a class = "nav-link text-uppercase text-dark" href = "my_info.html">my information</a>
-                        </li>
-                        <li class = "nav-item px-2 py-2 border-0">
-                            <a class = "nav-link text-uppercase text-dark" href = "contact.html">contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </a>
+        </div>
 
-        <div class = "text-center position-relative" id="pipi"></div>
-        <div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
-            <a href = "change_email.html">
-                <button type="button" class = "btn position-relative">Change Email</button>
-            </a>
+        <div class = "order-lg-2 nav-btns">
+            <button type="button" class = "btn position-relative" id = "logout">Logout</button>
         </div>
-        <div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
-            <a href = "change_password.html">
-                <button type="button" class = "btn position-relative">Change Password</button>
-            </a>
+
+        <button class = "navbar-toggler border-0" type = "button" data-bs-toggle = "collapse" data-bs-target = "#navMenu">
+            <span class = "navbar-toggler-icon"></span>
+        </button>
+
+        <div class = "collapse navbar-collapse order-lg-1" id = "navMenu">
+            <ul class = "navbar-nav mx-auto text-center">
+                <li class = "nav-item px-2 py-2">
+                    <a class = "nav-link text-uppercase text-dark" href = "home.html">home</a>
+                </li>
+                <li class = "nav-item px-2 py-2 border-0">
+                    <a class = "nav-link text-uppercase text-dark" href = "order.html">orders</a>
+                </li>
+                <li class = "nav-item px-2 py-2 border-0">
+                    <a class = "nav-link text-uppercase text-dark" href = "my_info.html">my information</a>
+                </li>
+                <li class = "nav-item px-2 py-2 border-0">
+                    <a class = "nav-link text-uppercase text-dark" href = "contact.html">contact</a>
+                </li>
+            </ul>
         </div>
-        <div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
-            <a href = "">
-                <button type="button" class = "btn position-relative">Delete Accaunt</button>
-            </a>
-        </div>
-    
-        <script src = "js/script.js"></script>
-        <script>
-            document.querySelector('#logout').addEventListener('click', logOut);
-            user_email = getCookie("username")
-            const e = `<h6>Your Email: ${user_email}</h6>`
-            document.querySelector('#pipi').insertAdjacentHTML('beforeend', e);
-        </script>
-    </body>
+    </div>
+</nav>
+
+<div class = "text-center position-relative" id="pipi"></div>
+<div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
+    <a href = "change_email.html">
+        <button type="button" class = "btn position-relative">Change Email</button>
+    </a>
+</div>
+<div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
+    <a href = "change_password.html">
+        <button type="button" class = "btn position-relative">Change Password</button>
+    </a>
+</div>
+<div class = "mt-3 mt-lg-0 ml-lg-3 text-center">
+    <a href = "">
+        <button type="button" class = "btn position-relative" id="deleteAccount">Delete Account</button>
+    </a>
+</div>
+
+<script src = "js/script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('#logout').addEventListener('click', logOut);
+        const user_email = getCookie("username");
+        const e = `<h6>Your Email: ${user_email}</h6>`;
+        document.querySelector('#pipi').insertAdjacentHTML('beforeend', e);
+
+        const deleteButton = document.querySelector('#deleteAccount');
+
+        deleteButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default action
+            const id = getCookie("ID"); // Assuming you have a getCookie function that works correctly
+
+            if (!id) {
+                alert("User ID is not available. Please ensure you are logged in.");
+                return;
+            }
+
+            // Confirm before deleting
+            if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
+                fetch(`http://localhost:8080/api/users/${id}`, {
+                    method: 'DELETE',
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        // Check if the response has content
+                        if (response.status === 204 || response.status === 200) { // No Content or OK without content
+                            console.log("Account successfully deleted.");
+                            alert("Account successfully deleted.");
+                            // Here you can redirect the user or perform other actions to reflect the account deletion
+                            // For example, redirecting to the login page:
+                            window.location.href = "login.html";
+                            return null; // Return null since there's no JSON to parse
+                        } else {
+                            return response.json();
+                        }
+                    })
+                    .then(data => {
+                        // If your server does return a response for deletion, you can handle it here
+                    })
+                    .catch(error => {
+                        console.error("There was a problem with the fetch operation:", error);
+                        alert("Error deleting account. Please try again later.");
+                    });
+            }
+        });
+    });
+</script>
+</body>
 
 </html>
