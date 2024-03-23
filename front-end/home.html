@@ -77,18 +77,18 @@
                             <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                                 <div class="mr-2 mb-3 mb-lg-0">
 
-                                    <img src="images/crvena_knjiga.jpg" width="150" height="150" alt="">
+                                    <img src="images/crvena_knjiga.jpg" width="150" height="150" alt="" class="shop-item-image">
 
                                 </div>
 
                                 <div class="media-body">
-                                    <h6 class="text-dark">${product.name}</h6>
-                                    <p class="mb-3">${product.price}$</p>
-                                    <p class="mb-3">${product.description}</p>
+                                    <h6 class="text-dark shop-item-title">${product.name}</h6>
+                                    <p class="mb-3 shop-item-price">${product.price}$</p>
+                                    <p class="mb-3 shop-item-details">${product.description}</p>
                                 </div>
 
                                 <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
-                                    <button type="button" class="btn btn-warning mt-4 text-dark" id = "addCrt"><i class="icon-cart-add mr-2"></i> Add to cart</button>
+                                    <button type="button" class="btn btn-primary text-dark shop-item-button" id = "addCrt"> Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -98,6 +98,17 @@
                     })
                 })
                 .catch(error => console.log(error));
+
+            let x = 0;
+            let addToCartButtons = document.getElementsByClassName('shop-item-button');
+            for (let i = 0; i <= (addToCartButtons.length - 1); i++) {
+                x = x + 1;
+                let button = addToCartButtons[i];
+                button.addEventListener('click', addToCartClicked);
+            }
+            console.log(addToCartButtons)
+            console.log(x)
+
         </script>
     </body>
 

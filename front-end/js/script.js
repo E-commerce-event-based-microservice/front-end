@@ -61,6 +61,7 @@ const sendMessage = async() => {
 
 const sendOrder = async() => {
     let user_id = getCookie("ID");
+    let email = getCookie("username")
     let response = await fetch('http://localhost:8089/orders', {
         method: 'POST',
         headers:{
@@ -70,15 +71,17 @@ const sendOrder = async() => {
         body: JSON.stringify({
             details: [
                 {
-                  itemId: 1,
-                  num: 1
+                    itemId: 1,
+                    num: 1
                 },
-              ],
+            ],
             billingAddressId: 12341265,
             shippingAddressId: 5444341221,
-            userId: user_id
+            userId: user_id,
+            email: email
         })
     })
+
 
     console.log(response);
 }
@@ -114,6 +117,18 @@ function purchaseClicked() {
     }
     updateCartTotal()
     sendOrder()
+}
+
+function addToCartClicked(event){
+    var button = event.target
+    var shopItem = button.parentElement.parentElement
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    console.log("add to cart active")
+    //console.log(price)
+    //addItemToCart(title, price, imageSrc)
+    //updateCartTotal()
 }
 
 function setCookie(name, value, daysToLive){
