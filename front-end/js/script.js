@@ -5,7 +5,7 @@ const makeUser = async() => {
     let reset_question = document.getElementById('reset-question').value
     let reset_answer = document.getElementById('reset-answer').value
 
-    let response = await fetch('http://localhost:8080/auth/signup', {
+    let response = await fetch('http://localhost:8085/auth/signup', {
         method: 'POST',
         headers:{
             'Accept': 'application/json',
@@ -41,7 +41,7 @@ const sendMessage = async() => {
     let client_mail = document.getElementById('client_mail').value
     let client_message = document.getElementById('client_message').value
 
-    let response = await fetch('http://localhost:8081/send_notification', {
+    let response = await fetch('http://localhost:8085/send_notification', {
         method: 'POST',
         headers:{
             'Accept': 'application/json',
@@ -62,7 +62,7 @@ const sendMessage = async() => {
 const sendOrder = async() => {
     let user_id = getCookie("ID");
     let email = getCookie("username")
-    let response = await fetch('http://localhost:8089/orders', {
+    let response = await fetch('http://localhost:8085/orders', {
         method: 'POST',
         headers:{
             'Accept': 'application/json',

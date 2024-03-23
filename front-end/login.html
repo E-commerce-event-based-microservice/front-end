@@ -28,31 +28,34 @@
 </div>
 <script src = "js/script.js"></script>
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        fetch('http://localhost:8085/auth/signin', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                password: password
-            }),
-        })
-            .then(response => response.json()) // Always parse the JSON regardless of the status code.
-            .then(data => {
-                if (data.statusCode === 500 && data.error === "Bad credentials") {
-                    // Handle the error, for example, by displaying an alert to the user.
-                    alert('Authentication failed: Bad credentials.');
-                } else {
-                    // If the error structure isn't present, proceed with authentication success logic.
-                    setCookie("username", email, 365)
+        try {
+            let response = await fetch('http://localhost:8085/auth/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                }),
+            });
 
-                    fetch('http://localhost:8085/api/userId/' + email + '/',{
+            let data = await response.json(); // Always parse the JSON regardless of the status code.
+
+            if (data.statusCode === 500 && data.error === "Bad credentials") {
+                // Handle the error, for example, by displaying an alert to the user.
+                alert('Authentication failed: Bad credentials.');
+            } else {
+                // If the error structure isn't present, proceed with authentication success logic.
+                setCookie("username", email, 365);
+
+                try {
+                    let responseProduct = await fetch('http://localhost:8085/api/userId/' + email + '/',{
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -60,24 +63,24 @@
                         body: JSON.stringify({
                             email: email
                         }),
-                    })
-                        .then(responseProduct => {
-                            return responseProduct.json();
-                        })
-                        .then(productData => {
-                            setCookie("ID", productData, 365)
-                        })
-                        .catch(error => console.log(error));
-                    window.location.href = "home.html";
+                    });
 
+                    let productData = await responseProduct.json();
+                    setCookie("ID", JSON.stringify(productData), 365); // Ensure you're stringifying the productData
+
+                    window.location.href = "home.html";
+                } catch(error) {
+                    console.error('Product Fetch Error:', error);
+                    alert('An error occurred while fetching product data. Please try again.');
                 }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
-            });
+            }
+        } catch (error) {
+            console.error('Authentication Error:', error);
+            alert('An error occurred during authentication. Please try again.');
+        }
     });
 </script>
+
 
 </body>
 </html>
