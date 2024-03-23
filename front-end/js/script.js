@@ -120,16 +120,23 @@ function purchaseClicked() {
 }
 
 function addToCartClicked(event){
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    console.log("add to cart active")
-    //console.log(price)
-    //addItemToCart(title, price, imageSrc)
-    //updateCartTotal()
+    var button = event.target;
+    var shopItem = button.parentElement.parentElement;
+    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText;
+    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText;
+    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src;
+
+    var cartItem = { title: title, price: price, imageSrc: imageSrc, quantity: 1 };
+    saveCartItem(cartItem);
 }
+
+function saveCartItem(cartItem) {
+    // Load cart items from localStorage or initialize an empty array if none exist.
+    var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    cartItems.push(cartItem);
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
+
 
 function setCookie(name, value, daysToLive){
     const date = new Date();
