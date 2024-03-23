@@ -94,7 +94,7 @@
 
             // Confirm before deleting
             if (confirm("Are you sure you want to delete your account? This action cannot be undone.")) {
-                fetch(`http://localhost:8080/api/users/${id}`, {
+                fetch(`http://localhost:8085/api/users/${id}`, {
                     method: 'DELETE',
                 })
                     .then(response => {

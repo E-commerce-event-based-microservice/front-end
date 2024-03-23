@@ -63,7 +63,7 @@
         <script src = "js/script.js"></script>
         <script>
             document.querySelector('#logout').addEventListener('click', logOut);
-            fetch('http://localhost:8089/products')
+            fetch('http://localhost:8085/products')
                 .then(responseProduct => {
                     return responseProduct.json();
                 })
