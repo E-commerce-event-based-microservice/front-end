@@ -62,6 +62,8 @@
 
         <script src = "js/script.js"></script>
         <script>
+            deleteCookie("cart")
+            deleteCookie("number")
             document.querySelector('#logout').addEventListener('click', logOut);
             fetch('http://localhost:8089/products')
                 .then(responseProduct => {
@@ -84,6 +86,7 @@
                                 <div class="media-body">
                                     <h6 class="text-dark shop-item-title">${product.name}</h6>
                                     <p class="mb-3 shop-item-price">${product.price}$</p>
+                                    <p class="mb-3 shop-item-id">${product.productId}</p>
                                     <p class="mb-3 shop-item-details">${product.description}</p>
                                 </div>
 
@@ -95,19 +98,23 @@
                     </div>`;
 
                         document.querySelector('#test').insertAdjacentHTML('beforeend', markup);
+
+                        let x = 0;
+                        let addToCartButtons = document.getElementsByClassName('shop-item-button');
+                        addToCartButtons = Array.from(addToCartButtons);
+                        console.log(addToCartButtons.length);
+                        for (let i = 0; i < addToCartButtons.length; i++) {
+                            x = x + 1;
+                            let button = addToCartButtons[i];
+                            button.addEventListener('click', addToCartClicked);
+                        }
+                        console.log(addToCartButtons);
+                        console.log(x);
                     })
                 })
                 .catch(error => console.log(error));
 
-            let x = 0;
-            let addToCartButtons = document.getElementsByClassName('shop-item-button');
-            for (let i = 0; i <= (addToCartButtons.length - 1); i++) {
-                x = x + 1;
-                let button = addToCartButtons[i];
-                button.addEventListener('click', addToCartClicked);
-            }
-            console.log(addToCartButtons)
-            console.log(x)
+
 
         </script>
     </body>

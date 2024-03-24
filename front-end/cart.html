@@ -64,23 +64,11 @@
                 <span class="cart-price cart-header cart-column">PRICE</span>
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
             </div>
-            <div class="cart-items">
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="images/crvena_knjiga.jpg" width="100" height="100">
-                        <span class="cart-item-title">Red Book</span>
-                    </div>
-                    <span class="cart-price cart-column">22.99$</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="1">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
-            </div>
+            <div class="cart-items" id="test"></div>
 
             <div class="cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">$22.99</span>
+                <span class="cart-total-price">$0</span>
             </div>
             <button class="btn btn-primary btn-purchase" type="button" id="order_submit">PURCHASE</button>
         </section>
@@ -88,12 +76,42 @@
         <script src = "js/script.js"></script>
         <script>
             document.querySelector('#logout').addEventListener('click', logOut);
-            var removeCartItemButtons = document.getElementsByClassName('btn-danger')
-            for (var i = 0; i < removeCartItemButtons.length; i++) {
-                var button = removeCartItemButtons[i]
-                button.addEventListener('click', removeCartItem)
-            }
 
+            const cartData = getCookie("cart");
+            console.log(cartData);
+
+            if(cartData === null){
+
+            }else{
+                const jsonCartData = JSON.parse(cartData);
+                const arrayJsonCartData = Array.from(jsonCartData["details"]);
+                console.log("length" + arrayJsonCartData.length);
+                for(let i = 0; i < arrayJsonCartData.length; i++) {
+                    let product = arrayJsonCartData[i];
+                        const markup = `
+                            <div class="cart-row">
+                                <div class="cart-item cart-column">
+                                    <img class="cart-item-image" src="images/crvena_knjiga.jpg" width="100" height="100">
+                                    <span class="cart-item-title">${product.name}</span>
+                                </div>
+                                <span class="cart-id cart-column">ID: ${product.id}</span>
+                                <span class="cart-price cart-column">${product.price}$</span>
+                                <div class="cart-quantity cart-column">
+                                    <input class="cart-quantity-input" type="number" value="1">
+                                    <button class="btn btn-danger" type="button">REMOVE</button>
+                                </div>
+                            </div>`;
+
+                        document.querySelector('#test').insertAdjacentHTML('beforeend', markup);
+                        var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+                        removeCartItemButtons = Array.from(removeCartItemButtons);
+                        for (var j = 0; j < removeCartItemButtons.length; j++) {
+                            var button = removeCartItemButtons[j]
+                            button.addEventListener('click', removeCartItem)
+                        }
+                }
+            }
+            updateCartTotal()
             document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
         </script>
 
